@@ -1,12 +1,21 @@
 {
-
     "users": [
-    { "id": "jhioisjoid", "username": "John Doe" ,"email": " 5Lx0Y@example.com", "password": "123456" }, 
-    { "id": "joijsdoij", "username": "Jane Doe" ,"email": "jane.doe@example.com", "password": "password123" }
-  ],
-  "products": [
-    {
+        
+            {
+"id": 0,
+"username": "dev",
+"email": "dev@example.com",
+"password": "devpassword"
+},
+{
 "id": 1,
+"username": "admin",
+"email": " admin@example.com",
+"password": "adminpassword"
+}
+    ],
+    "products": [
+       { "id": 1,
     "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
     "price": 109.95,
     "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
@@ -14,20 +23,25 @@
     "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
     "rating": {
       "rate": 3.9,
-      "count": 120
+      "count": 120}
     }
-}],
-      
-  
-  "posts": [
-    { "id": "1", "title": "a title", "views": 100 },
-    { "id": "2", "title": "another title", "views": 200 }
-  ],
-  "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+
+       
+
+    ],
+
+        "carts": [
+            {
+                "id": 1,
+                "userId": 1,
+                "date": "2020-03-02T00:00:00.000Z",
+                "products": [
+                    {
+                        "productId": 1,
+                        "quantity": 2
+                    }
+                ]
+            }
+        ]
+
 }
