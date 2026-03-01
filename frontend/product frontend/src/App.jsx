@@ -1,20 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import instance from './api/axiosconfig';
+import { asyncgetProducts } from './store/userAction';
+import { useDispatch } from 'react-redux';
 
 const App = () => {
-  const [products, setProducts] = useState([]);
-  const getProducts = async () => {
-    try {
-      const response = await instance.get("/products");
-      setProducts(response.data)
-      console.log(response);
-    }
-    catch (error) {
-      console.log(error);
-    }
-  }
+  const dispatch = useDispatch();
     useEffect(()=>{
-      getProducts();
+        dispatch(asyncgetProducts());
 
     },[])
   return (
