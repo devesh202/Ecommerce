@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { asyncgetProducts } from './store/userAction';
 import { useDispatch, useSelector } from 'react-redux';
+import Mainroutes from './routes/Mainroutes';
+import Nav from './components/Nav';
 
 const App = () => {
   const data = useSelector((state) => state)
@@ -11,7 +13,10 @@ const App = () => {
 
     },[])
   return (
-    <div>App</div>
+    <div className='w-screen h-screen bg-black text-white'>
+      <Nav/>
+      <Mainroutes/>
+    </div>
   )
 }
 
