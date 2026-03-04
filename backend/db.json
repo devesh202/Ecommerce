@@ -1,47 +1,56 @@
 {
-    "users": [
-        
-            {
-"id": 0,
-"username": "dev",
-"email": "dev@example.com",
-"password": "devpassword"
-},
-{
-"id": 1,
-"username": "admin",
-"email": " admin@example.com",
-"password": "adminpassword"
-}
-    ],
-    "products": [
-       { "id": 1,
-    "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-    "price": 109.95,
-    "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-    "category": "men's clothing",
-    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
-    "rating": {
-      "rate": 3.9,
-      "count": 120}
+  "users": [
+    {
+      "id": "0",
+      "username": "dev",
+      "email": "dev@example.com",
+      "password": "devpassword"
+    },
+    {
+      "id": "1",
+      "username": "admin",
+      "email": " admin@example.com",
+      "password": "adminpassword"
+    },
+    {
+      "id": "6pBuAByYwOss6BH9PnnU_",
+      "username": "devesh zope",
+      "email": "dev@gmail.com",
+      "password": "password"
+    },
+    {
+      "id": "oSu2Dn25Q2MD7ezw1g4in",
+      "username": "admin",
+      "email": "admin@eg.com",
+      "password": "admin123",
+      "isAdmin": false
     }
-
-       
-
-    ],
-
-        "carts": [
-            {
-                "id": 1,
-                "userId": 1,
-                "date": "2020-03-02T00:00:00.000Z",
-                "products": [
-                    {
-                        "productId": 1,
-                        "quantity": 2
-                    }
-                ]
-            }
-        ]
-
+  ],
+  "products": [
+    {
+      "id": "1",
+      "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+      "price": 109.95,
+      "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+      "category": "men's clothing",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
+      "rating": {
+        "rate": 3.9,
+        "count": 120
+      }
+    }
+  ],
+  "carts": [
+    {
+      "id": "1",
+      "userId": 1,
+      "date": "2020-03-02T00:00:00.000Z",
+      "products": [
+        {
+          "productId": 1,
+          "quantity": 2
+        }
+      ]
+    }
+  ]
 }
