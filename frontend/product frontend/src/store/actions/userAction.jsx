@@ -12,6 +12,17 @@ export const asyncuserdetails = () => async (dispatch,getState) => {
 
         }
 }
+
+export const asynccurrentuser = () => async (dispatch,getState) => {
+    try{
+        const user = JSON.parse(localStorage.getItem("user"));
+        if(user) dispatch(loadUser(user));
+        else alert("User not logged in"); 
+    }
+    catch(error){
+        console.log(error);
+        }
+}
 export const asynclogoutuser = () => async (dispatch,getState) => {
     try{
         localStorage.removeItem("user");
