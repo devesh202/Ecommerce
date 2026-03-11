@@ -1,14 +1,42 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { asyncdeleteproduct, asyncupdateproduct } from "../../store/actions/productActions";
 
 const ProductDetails = () => {
   const { id } = useParams();
+  
 
   const product = useSelector((state) =>
-    state.productReducer.products.find((p) => p.id === Number(id))
+    state.productReducer.products.find((p) => p.id === id)
   );
-  console.log("ProductDetails - product:", product);
+  const user = useSelector((state) => state.userReducer.users);
+  console.log("ProductDetails - product:", product, user);
+
+  const { register, reset, handleSubmit } = useForm({
+    defaultValues: {
+      title: product ? product?.title : "",
+      price: product ? product?.price : "",
+      description: product ? product?.description : "",
+      category: product ? product?.category : "",
+      image: product ? product?.image : ""
+    }
+  });
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const updateProductHandler = (product) => {
+    console.log("updateProductHandler - product:", product);
+
+    dispatch(asyncupdateproduct(id,product));
+  };
+
+  const deleteProductHandler = () => {
+    dispatch(asyncdeleteproduct(id));
+    navigate("/products");
+
+  };
 
   if (!product) {
     return (
@@ -58,7 +86,31 @@ const ProductDetails = () => {
         </div>
 
       </div>
+       {user && user.isAdmin && (
+      <form onSubmit={handleSubmit(updateProductHandler)} className='flex text-black flex-col items-start p-10'>
+
+      <input {...register("title")} type="text" placeholder='Product Title' className='mb-3 outline-0 border-b p-2 text-xl'/>
+
+      <input {...register("price")} type="number" placeholder='Price' className='mb-3 outline-none border-b p-2 text-xl'/>
+
+      <textarea {...register("description")} placeholder='Description' className='mb-3 outline-none border-b p-2 text-xl'/>
+
+      <input {...register("category")} type="text" placeholder='Category' className='mb-3 outline-none border-b p-2 text-xl'/>
+
+      <input {...register("image")} type="text" placeholder='Image URL' className='mb-3 outline-none border-b p-2 text-xl'/>
+
+      <button className='p-4 bg-blue-400 text-white cursor-pointer rounded-md border-gray-300'>
+        update Product
+      </button>
+      <button type="button" onClick={deleteProductHandler} className='p-4 bg-red-500 text-white cursor-pointer rounded-md border-gray-300'>
+        Delete Product
+      </button>
+
+    </form>
+       )}
+    
     </div>
+    
   );
 };
 
