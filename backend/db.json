@@ -10,7 +10,7 @@
       "id": "1",
       "username": "admin",
       "email": "admin@example.com",
-      "password": "adminpassword",
+      "password": "12345",
       "isAdmin": true
     },
     {
