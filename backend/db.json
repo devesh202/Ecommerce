@@ -10,8 +10,9 @@
       "id": "1",
       "username": "admin",
       "email": "admin@example.com",
-      "password": "12345",
-      "isAdmin": true
+      "password": "123456",
+      "isAdmin": true,
+      "cart": []
     },
     {
       "id": "6pBuAByYwOss6BH9PnnU_",
@@ -24,7 +25,13 @@
       "username": "admin",
       "email": "admin@eg.com",
       "password": "admin123",
-      "isAdmin": false
+      "isAdmin": false,
+      "cart": [
+        {
+          "productId": "Tr139wlilKaMA2NQMbh8r",
+          "quantity": 7
+        }
+      ]
     },
     {
       "id": "OWA4db0z7wNv5LhPNPvi4",

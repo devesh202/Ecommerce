@@ -11,14 +11,14 @@ import UserProfile from '../pages/users/UserProfile'
 
 
 const Mainroutes = () => {
-  const {users} = useSelector((state) => state.userReducer.users)
+  const {users} = useSelector((state) => state.userReducer)
   console.log(users)
   return (
 
     <Routes>
-        <Route path='/' element={<Home/>} />
+       
       
-        <Route path='/products' element={<Products/>} />
+        <Route path='/' element={users?<Products/>:<Home/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
         <Route path='/admin/create-product' element={<CreateProduct/>} />

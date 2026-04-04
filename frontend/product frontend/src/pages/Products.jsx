@@ -1,9 +1,29 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { asyncupdateuser } from "../store/actions/userAction";
 
 const Products = () => {
-  const products = useSelector((state) => state.productReducer.products);
+const dispatch = useDispatch();
+  const {userReducer: {users} , productReducer : {products}} = useSelector((state) => state)
+
+  const AddtoCartHandler = (id) => {
+    const copyuser = {...users, cart : [...users.cart]};
+    const x = copyuser.cart.findIndex((item) => item.productId === id);
+    if (x==-1){
+      copyuser.cart.push({productId : id , quantity : 1});
+    }
+    else{
+      copyuser.cart[x]={productId : id , quantity : copyuser.cart[x].quantity + 1}
+    }
+    console.log(copyuser)
+    dispatch(asyncupdateuser(copyuser.id, copyuser));
+  
+    
+    }
+  
+
+
 
   const renderproducts = products.map((product) => {
     return (
@@ -31,7 +51,7 @@ const Products = () => {
             ${product.price}
           </p>
 
-          <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition duration-200">
+          <button onClick={()=>AddtoCartHandler(product.id)} className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition duration-200">
             Add to Cart
           </button>
         </div>

@@ -26,16 +26,18 @@ export const asynccurrentuser = () => async (dispatch,getState) => {
 export const asynclogoutuser = () => async (dispatch,getState) => {
     try{
         localStorage.removeItem("user");
+        dispatch(loadUser(null));
     }
     catch(error){
         console.log(error);
     }
 }
-export const asyncloginuser =(user) => async (dispatch,getState) => {
+export const asyncloginuser = (user) => async (dispatch,getState) => {
     try{
         //user finding logic
         
         const {data} = await axios.get(`/users?email=${user.email}&password=${user.password}`);
+        console.log(data);
         console.log(data[0])
         localStorage.setItem("user", JSON.stringify(data[0]));
         }
@@ -51,6 +53,7 @@ export const asyncupdateuser = (id,user) => async (dispatch,getState) => {
         const {data } = await axios.patch(`/users/${id}`, user);
         console.log(data);
         localStorage.setItem("user", JSON.stringify(data));
+        dispatch(loadUser(data));
         // dispatch(asynccurrentuser());
     }
     catch(error){

@@ -12,7 +12,6 @@ const Nav = () => {
     <nav className="flex mb-5 justify-center items-center gap-x-5 p-5 bg-gray-800 text-white">
 
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/products">Products</NavLink>
 
       {users ? (
         

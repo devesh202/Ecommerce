@@ -16,7 +16,7 @@ const CreateProduct = () => {
 
     dispatch(asynccreateproduct(product));
 
-    navigate("/products");
+    navigate("/");
   };
 
   return (

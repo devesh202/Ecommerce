@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { asyncdeleteuser, asyncupdateuser } from '../../store/actions/userAction'
+import { asyncdeleteuser, asynclogoutuser, asyncupdateuser } from '../../store/actions/userAction'
 
 const UserProfile = () => {
 
@@ -18,6 +18,11 @@ const UserProfile = () => {
 
   const deleteUserHandler = (users) => {
     dispatch(asyncdeleteuser(users.id))
+    navigate("/login")
+  }
+
+  const logoutHandler = () => {
+    dispatch(asynclogoutuser())
     navigate("/login")
   }
 
@@ -73,6 +78,13 @@ const UserProfile = () => {
               className="flex-1 bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg transition duration-200"
             >
               Delete
+            </button>
+            <button
+              type="button"
+              onClick= {logoutHandler}
+              className="flex-1 bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg transition duration-200"
+            >
+              Logout
             </button>
 
           </div>
